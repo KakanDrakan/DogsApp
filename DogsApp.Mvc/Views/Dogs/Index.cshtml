@@ -1,0 +1,21 @@
+﻿@model DogsApp.Mvc.Models.Dog[]
+
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+	@foreach (var dog in Model)
+	{
+		<div>
+			<h2>@dog.Name</h2>
+			<p>Age: @dog.Age</p>
+			<p>ID: @dog.Id</p>
+		</div>
+	}
+	<a href="/create" a>Create dog</a>
+
+
+    </body>
+    </html>
