@@ -20,11 +20,21 @@
 			
 
 		<form method="post" action="/delete/@dog.Id">
-			<input type="submit" name="id" value="@dog.Id" />
+			<input type="submit" value="Remove dog" />
 
 		</form>
 
+		
+		<a href="/edit/@dog.Id"><button>Edit</button></a>
+
+		@* <form method="post" action="/edit/@dog.Id"> *@
+			@* <input type="submit" value="Edit" /> *@
+
+		@* </form> *@
+
+
 	}
+	<br />
 	<a href="/create">Create dog</a>
 
 

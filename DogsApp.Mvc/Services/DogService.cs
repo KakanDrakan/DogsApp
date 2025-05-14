@@ -42,5 +42,15 @@ namespace DogsApp.Mvc.Services
             Dog dog = GetDogById(id);
             _dogs.Remove(dog);
         }
+
+        public void EditDog(Dog editedDog)
+        {
+            var dog = _dogs.SingleOrDefault(d => d.Id == editedDog.Id);
+            if (dog != null)
+            {
+                dog.Name = editedDog.Name;
+                dog.Age = editedDog.Age;
+            }
+        }
     }
 }

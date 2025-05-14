@@ -1,0 +1,19 @@
+﻿@model DogsApp.Mvc.Models.Dog
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit dog</title>
+</head>
+<body>
+
+	<form action="/edit" method="post">
+		<label>Dog name</label>
+		<input type="text" placeholder="@Model.Name" name="Name" />
+		<label>Age</label>
+		<input type="number" placeholder="@Model.Age" name="Age" />
+		<input type="submit" value="Confirm edit" />
+	</form>
+
+	</body>
+</html>

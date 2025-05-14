@@ -6,11 +6,11 @@ namespace DogsApp.Mvc.Controllers;
 
 public class DogsController : Controller
 {
-    static DogService DogsService = new DogService();
+    static DogService dogService = new DogService();
     [HttpGet("")]
     public IActionResult Index()
     {
-        var model = DogsService.GetAllDogs();
+        var model = dogService.GetAllDogs();
         return View(model);
     }
 
@@ -25,28 +25,29 @@ public class DogsController : Controller
     {
         if (ModelState.IsValid)
         {
-            DogsService.AddDog(dog);
+            dogService.AddDog(dog);
             return RedirectToAction("Index");
         }
         return RedirectToAction();
     }
 
-    [HttpGet("edit")]
-    public IActionResult UpgradeDog()
+    [HttpGet("edit/{id}")]
+    public IActionResult EditDog(int id)
     {
-        return View();
+        var model = dogService.GetDogById(id);
+        return View(model);
     }
 
     [HttpPost("edit")]
-    public IActionResult UpgradeDog(Dog dog)
+    public IActionResult EditDog(Dog dog)
     {
-        return RedirectToAction("");
+        return RedirectToAction("Index");
     }
 
     [HttpPost("delete/{id}")]
     public IActionResult DeleteDog(int id)
     {
-        DogsService.RemoveDog(id);
+        dogService.RemoveDog(id);
         return RedirectToAction("Index");
     }
 }
