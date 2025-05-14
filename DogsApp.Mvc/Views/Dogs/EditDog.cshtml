@@ -7,11 +7,11 @@
 </head>
 <body>
 
-	<form action="/edit" method="post">
+	<form action="/edit/@Model.Id" method="post">
 		<label>Dog name</label>
-		<input type="text" placeholder="@Model.Name" name="Name" />
+		<input type="text" value="@Model.Name" name="Name" />
 		<label>Age</label>
-		<input type="number" placeholder="@Model.Age" name="Age" />
+		<input type="number" value="@Model.Age" name="Age" />
 		<input type="submit" value="Confirm edit" />
 	</form>
 

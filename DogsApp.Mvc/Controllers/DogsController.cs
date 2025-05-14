@@ -38,9 +38,10 @@ public class DogsController : Controller
         return View(model);
     }
 
-    [HttpPost("edit")]
+    [HttpPost("edit/{id}")]
     public IActionResult EditDog(Dog dog)
     {
+        dogService.EditDog(dog);
         return RedirectToAction("Index");
     }
 
