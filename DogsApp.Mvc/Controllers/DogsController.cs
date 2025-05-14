@@ -19,6 +19,7 @@ public class DogsController : Controller
     {
         return View();
     }
+
     [HttpPost("create")]
     public IActionResult CreateDog(Dog dog)
     {
@@ -27,7 +28,7 @@ public class DogsController : Controller
             DogsService.AddDog(dog);
             return RedirectToAction("Index");
         }
-        return View(dog);
+        return RedirectToAction();
     }
 
     [HttpGet("edit")]
@@ -42,10 +43,10 @@ public class DogsController : Controller
         return RedirectToAction("");
     }
 
-    [HttpPost("delete")]
-    public IActionResult DeleteDog(Dog dog)
+    [HttpPost("delete/{id}")]
+    public IActionResult DeleteDog(int id)
     {
-        DogsService.RemoveDog(dog);
+        DogsService.RemoveDog(id);
         return RedirectToAction("Index");
     }
 }
