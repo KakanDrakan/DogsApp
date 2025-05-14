@@ -1,7 +1,8 @@
 ﻿using DogsApp.Mvc.Models;
+
 namespace DogsApp.Mvc.Services
 {
-    public class DogsService
+    public class DogService
     {
         private List<Dog> _dogs = new List<Dog>
         {
@@ -25,6 +26,11 @@ namespace DogsApp.Mvc.Services
         public Dog GetDogById(int id)
         {
             return _dogs.SingleOrDefault(d => d.Id == id);
+        }
+
+        public void RemoveDog(Dog dog)
+        {
+            _dogs.Remove(dog);            
         }
     } 
 }
